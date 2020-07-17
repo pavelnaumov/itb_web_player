@@ -5,8 +5,7 @@
   "author": "it-bp-msc",
   "license": "MIT",
   "repository": "https://github.com/pavelnaumov/itb_web_player",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "main": "src/index.js",
   "source": "src/index.js",
   "engines": {
     "node": ">=10"
@@ -111,7 +110,6 @@
     "node-sass": "^4.14.1"
   },
   "files": [
-    "dist",
     "src"
   ]
 }
