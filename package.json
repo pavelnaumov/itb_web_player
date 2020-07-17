@@ -111,6 +111,6 @@
     "node-sass": "^4.14.1"
   },
   "files": [
-    "dist"
+    "dist", "src"
   ]
 }
