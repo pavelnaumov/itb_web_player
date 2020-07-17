@@ -49,6 +49,16 @@ class Gallery extends PureComponent {
     this.onNextButtonPress = this.onNextButtonPress.bind(this)
   }
 
+  componentDidMount() {
+    this.checkInitialIndex()
+  }
+
+  checkInitialIndex = () => {
+    if (this.props.initialIndex) {
+      this.setState({ activePhotoIndex: this.props.initialIndex })
+    }
+  }
+
   onNextButtonPress() {
     const { nextButtonPressed } = this.props
     this.next()
