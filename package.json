@@ -4,7 +4,7 @@
   "description": "Made with create-react-library",
   "author": "it-bp-msc",
   "license": "MIT",
-  "repository": "it-bp-msc/itb_web_player",
+  "repository": "https://github.com/pavelnaumov/itb_web_player",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
