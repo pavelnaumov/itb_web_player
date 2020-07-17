@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './styles.module.css'
+import ReactBnbGallery from './ReactBnbGallery'
+import Gallery from './components/Gallery'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export default ReactBnbGallery
+
+export { ReactBnbGallery, Gallery }

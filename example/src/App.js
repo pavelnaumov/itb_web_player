@@ -1,10 +1,19 @@
 import React from 'react'
+import photos from './photos'
+import 'itb_web_player/src/scss/style.scss'
 
-import { ExampleComponent } from 'itb_web_player'
-import 'itb_web_player/dist/index.css'
+import { ReactBnbGallery } from 'itb_web_player'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <ReactBnbGallery
+      show={true}
+      photos={photos}
+      onClose={() => {}}
+      wrap={false}
+      backgroundColor='rgba(0, 0, 0, 0.9)'
+    />
+  )
 }
 
 export default App
