@@ -56,7 +56,6 @@ class Gallery extends PureComponent {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.activePhotoIndex !== this.state.activePhotoIndex) {
       this.props.indexDidChange(this.state.activePhotoIndex)
-      console.log(this.state.activePhotoIndex)
     }
   }
 
