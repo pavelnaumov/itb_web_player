@@ -250,7 +250,7 @@ class Gallery extends PureComponent {
   }
 
   render() {
-    const { photos, showThumbnails, phrases } = this.props
+    const { photos, showThumbnails, phrases, onDownload } = this.props
 
     const { noPhotosProvided: emptyMessage } = phrases
 
@@ -325,6 +325,7 @@ class Gallery extends PureComponent {
             current={activePhotoIndex}
             photos={photos}
             onPress={this.onThumbnailPress}
+            onDownload={onDownload}
           />
         )}
       </div>

@@ -46,6 +46,7 @@ class Caption extends PureComponent {
     this.thumbnailsWrapperRef = null
     this.thumbnailsListRef = null
     this.hasMoreThanOnePhoto = photos.length > 1
+    this.hasOnePhoto = photos.length === 1
     this.onThumbnailPress = this.onThumbnailPress.bind(this)
     this.setGalleryFigcaptionRef = this.setGalleryFigcaptionRef.bind(this)
     this.setGalleryThubmanilsRef = this.setGalleryThubmanilsRef.bind(this)
@@ -123,7 +124,7 @@ class Caption extends PureComponent {
   }
 
   render() {
-    const { current, photos, phrases } = this.props
+    const { current, photos, phrases, onDownload } = this.props
 
     const { showThumbnails } = this.state
 
@@ -157,6 +158,26 @@ class Caption extends PureComponent {
                     phrases={phrases}
                     isOpened={showThumbnails}
                     onPress={this.toggleThumbnails}
+                  />
+                  <img
+                    className='icon-download'
+                    alt='download'
+                    src={require('../../icon_download_desktop.png')}
+                    width={25}
+                    height={25}
+                    onClick={onDownload}
+                  />
+                </div>
+              )}
+              {this.hasOnePhoto && (
+                <div className='caption-right'>
+                  <img
+                    className='icon-download'
+                    alt='download'
+                    src={require('../../icon_download_desktop.png')}
+                    width={25}
+                    height={25}
+                    onClick={onDownload}
                   />
                 </div>
               )}

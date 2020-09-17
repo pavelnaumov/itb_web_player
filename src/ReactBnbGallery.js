@@ -111,7 +111,7 @@ class ReactBnbGallery extends Component {
   }
 
   render() {
-    const { show, phrases, keyboard, light, zIndex } = this.props
+    const { show, phrases, keyboard, light, zIndex, onDownload } = this.props
 
     const { photos } = this.state
 
@@ -188,6 +188,7 @@ class ReactBnbGallery extends Component {
                         backgroundColor={null}
                         light={light}
                         initialIndex={initialIndex}
+                        onDownload={onDownload}
                       />
                     </div>
                   </div>
