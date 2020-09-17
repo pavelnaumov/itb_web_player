@@ -53,16 +53,9 @@ class Gallery extends PureComponent {
     this.checkInitialIndex()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.activePhotoIndex !== this.state.activePhotoIndex) {
-      this.props.indexDidChange(this.state.activePhotoIndex)
-    }
-  }
-
   checkInitialIndex = () => {
     if (this.props.initialIndex) {
       this.setState({ activePhotoIndex: this.props.initialIndex })
-      this.props.indexDidChange(this.state.activePhotoIndex)
     }
   }
 

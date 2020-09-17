@@ -123,8 +123,15 @@ class Caption extends PureComponent {
     )
   }
 
+  onDownloadFile = () => {
+    const currentPhoto = this.getPhotoByIndex(this.props.current)
+    if (currentPhoto.fileId) {
+      this.props.onDownload(currentPhoto.fileId)
+    }
+  }
+
   render() {
-    const { current, photos, phrases, onDownload } = this.props
+    const { current, photos, phrases } = this.props
 
     const { showThumbnails } = this.state
 
@@ -165,7 +172,7 @@ class Caption extends PureComponent {
                     src={require('../../icon_download_desktop.png')}
                     width={25}
                     height={25}
-                    onClick={onDownload}
+                    onClick={this.onDownloadFile}
                   />
                 </div>
               )}
@@ -177,7 +184,7 @@ class Caption extends PureComponent {
                     src={require('../../icon_download_desktop.png')}
                     width={25}
                     height={25}
-                    onClick={onDownload}
+                    onClick={this.onDownloadFile}
                   />
                 </div>
               )}
