@@ -242,6 +242,8 @@ class ReactBnbGallery extends Component {
                         onHideFullScreen={this.onHideFullScreen}
                         onFullScreen={this.onFullScreen}
                         onAssignIndex={onAssignIndex}
+                        forwardOverlay={this.props.forwardOverlay}
+                        forwardOverlayVisible={this.props.forwardOverlayVisible}
                       />
                     </div>
                   </div>

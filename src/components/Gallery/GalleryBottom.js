@@ -13,7 +13,9 @@ const GalleryBottom = ({
   onForward,
   onRotate,
   toFavourites,
-  isFavourite
+  isFavourite,
+  forwardOverlay,
+  forwardOverlayVisible
 }) => {
   const mediaItem = photos[currentIndex]
   const { caption, subcaption, fileId, avatar } = mediaItem
@@ -54,6 +56,7 @@ const GalleryBottom = ({
           />
         </div>
       </div>
+      <>{forwardOverlayVisible && forwardOverlay}</>
     </div>
   )
 }

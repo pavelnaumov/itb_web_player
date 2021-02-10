@@ -524,6 +524,8 @@ class Gallery extends PureComponent {
             onRotate={this.onRotate}
             toFavourites={toFavourites}
             isFavourite={isFavourite}
+            forwardOverlay={this.props.forwardOverlay}
+            forwardOverlayVisible={this.props.forwardOverlayVisible}
           />
         </div>
         {/* {showThumbnails && current && (
