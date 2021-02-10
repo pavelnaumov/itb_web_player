@@ -33,7 +33,6 @@ class PrevButton extends PureComponent {
         className="gallery-control--prev"
         onPress={onPress}
         arrow={PREV_ARROW}
-        disabled={disabled}
         light={light}
       />
     );

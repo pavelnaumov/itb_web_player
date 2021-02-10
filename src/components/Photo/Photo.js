@@ -1,18 +1,16 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 
-import omit from 'lodash/omit';
-import classnames from 'classnames';
+import omit from 'lodash/omit'
+import classnames from 'classnames'
 
-import Image from '../Image';
-import PhotoShape from '../../shapes/PhotoShape';
+import Image from '../Image'
+import PhotoShape from '../../shapes/PhotoShape'
 
-import {
-  imagePropTypes,
-  imageDefaultProps,
-} from '../../common';
-import { forbidExtraProps } from '../../common/prop-types';
-import noop from '../../utils/noop';
+import { imagePropTypes, imageDefaultProps } from '../../common'
+import { forbidExtraProps } from '../../common/prop-types'
+import noop from '../../utils/noop'
 
 const propTypes = forbidExtraProps({
   ...imagePropTypes,
@@ -20,8 +18,8 @@ const propTypes = forbidExtraProps({
   onPress: PropTypes.func,
   onTouchStart: PropTypes.func,
   onTouchMove: PropTypes.func,
-  onTouchEnd: PropTypes.func,
-});
+  onTouchEnd: PropTypes.func
+})
 
 const defaultProps = {
   ...imageDefaultProps,
@@ -29,82 +27,101 @@ const defaultProps = {
   onPress: noop,
   onTouchStart: noop,
   onTouchMove: noop,
-  onTouchEnd: noop,
-};
+  onTouchEnd: noop
+}
 
 class Photo extends PureComponent {
   constructor(props) {
-    super(props);
-    this.onPress = this.onPress.bind(this);
+    super(props)
+    this.state = {
+      height: 300,
+      width: 300
+    }
+    this.onPress = this.onPress.bind(this)
   }
 
   onPress() {
-    const { onPress } = this.props;
-    onPress();
+    const { onPress } = this.props
+    onPress()
+  }
+
+  imageLoaded = (height, width) => {
+    this.setState({
+      height,
+      width
+    })
   }
 
   renderPhoto() {
-    const {
-      photo,
-      onTouchStart,
-      onTouchMove,
-      onTouchEnd,
-      ...rest
-    } = this.props;
+    const { photo, onTouchStart, onTouchMove, onTouchEnd, ...rest } = this.props
 
     if (!photo) {
-      return null;
+      return null
     }
 
-    const {
-      onLoad,
-      onError,
-      style,
-    } = omit(rest, [
-      'onPress',
-    ]);
+    const { onLoad, onError, style } = omit(rest, ['onPress'])
+
+    const className =
+      this.state.width < this.state.height ? 'photo-vertical' : 'photo'
 
     return (
-      <button
-        type="button"
-        onClick={this.onPress}
-        className="photo-button"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
-        <Image
-          alt={photo.caption || ''}
-          className="photo"
-          src={photo.photo}
-          onLoad={onLoad}
-          onError={onError}
-          style={style}
-        />
-      </button>
-    );
+      <Image
+        alt={photo.caption || ''}
+        className={className}
+        src={photo.photo}
+        onLoad={onLoad}
+        onError={onError}
+        style={style}
+        imageLoaded={this.imageLoaded}
+      />
+    )
+  }
+
+  get onGetRotation() {
+    const { rotation } = this.props
+    switch (rotation) {
+      case 0:
+        return ''
+      case 90:
+        return 'rotate-90'
+
+      case 180:
+        return 'rotate-180'
+
+      case 270:
+        return 'rotate-270'
+
+      case 360:
+        return ''
+
+      default:
+        return ''
+    }
   }
 
   render() {
-    const className = classnames(
-      'gallery-media-photo',
-      'gallery-media-photo--block',
-      'gallery-media-cover',
-    );
+    // const className = classnames(
+    //   "gallery-media-photo",
+    //   "gallery-media-photo--block",
+    //   "gallery-media-cover",
+    //   "gallery-media-test"
+    // );
 
-    const photoRendered = this.renderPhoto();
+    const className = classnames('gallery-media-test')
+
+    const { toggleSignature, hideSignature, rotation } = this.props
+
+    const photoRendered = this.renderPhoto()
 
     return (
-      <ul className="gallery-images--ul">
-        <li className={className}>
-          {photoRendered}
-        </li>
+      <ul className={`gallery-images--ul ${this.onGetRotation}`}>
+        <li className={className}>{photoRendered}</li>
       </ul>
-    );
+    )
   }
 }
 
-Photo.propTypes = propTypes;
-Photo.defaultProps = defaultProps;
+Photo.propTypes = propTypes
+Photo.defaultProps = defaultProps
 
-export default Photo;
+export default Photo

@@ -33,7 +33,6 @@ class NextButton extends PureComponent {
         className="gallery-control--next"
         onPress={onPress}
         arrow={NEXT_ARROW}
-        disabled={disabled}
         light={light}
       />
     );

@@ -1,32 +1,26 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import classnames from 'classnames';
+import classnames from "classnames";
 
-import LoadingSpinner from '../LoadingSpinner';
+import LoadingSpinner from "../LoadingSpinner";
 
-import {
-  imagePropTypes,
-  imageDefaultProps,
-} from '../../common';
-import { forbidExtraProps } from '../../common/prop-types';
+import { imagePropTypes, imageDefaultProps } from "../../common";
+import { forbidExtraProps } from "../../common/prop-types";
 
 const propTypes = forbidExtraProps({
   ...imagePropTypes,
   alt: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   style: PropTypes.object,
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-  ]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 });
 
 const defaultProps = {
   ...imageDefaultProps,
   style: null,
   className: null,
-  alt: '',
+  alt: "",
 };
 
 const defaultState = {
@@ -60,7 +54,9 @@ class Image extends Component {
     return null;
   }
 
-  onLoad() {
+  onLoad({ target: img }) {
+    this.props.imageLoaded(img.height, img.width);
+
     const { onLoad } = this.props;
 
     onLoad();
@@ -83,22 +79,11 @@ class Image extends Component {
   }
 
   renderImage() {
-    const {
-      alt,
-      src,
-      style,
-      className,
-    } = this.props;
+    const { alt, src, style, className } = this.props;
 
-    const {
-      loading,
-      withError,
-    } = this.state;
+    const { loading, withError } = this.state;
 
-    const classNames = [
-      className,
-      'media-image',
-    ];
+    const classNames = [className, "media-image"];
 
     const components = [];
 
@@ -111,15 +96,18 @@ class Image extends Component {
     // if no loading, then return the
     // picture only if no error ocurred
     if (!withError) {
-      components.push(<img
-        alt={alt}
-        key=".pictureComponent"
-        className={classnames(classNames)}
-        onLoad={this.onLoad}
-        onError={this.onError}
-        src={src}
-        style={style}
-      />);
+      // .photo media-image
+      components.push(
+        <img
+          alt={alt}
+          key=".pictureComponent"
+          className={classnames(classNames)}
+          onLoad={this.onLoad}
+          onError={this.onError}
+          src={src}
+          style={style}
+        />
+      );
     }
 
     // TODO: show a custom message indicating the
@@ -129,23 +117,16 @@ class Image extends Component {
   }
 
   render() {
-    const {
-      loading,
-    } = this.state;
+    const { loading } = this.state;
 
-    const wrapperClassNames = [
-      'picture',
-      loading && 'loading',
-    ];
+    const wrapperClassNames = ["picture", loading && "loading"];
 
     // render the picture element
     const picture = this.renderImage();
 
-    return (
-      <div className={classnames(wrapperClassNames)}>
-        {picture}
-      </div>
-    );
+    // .picture
+
+    return <div className={classnames(wrapperClassNames)}>{picture}</div>;
   }
 }
 
