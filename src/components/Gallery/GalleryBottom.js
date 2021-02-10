@@ -16,7 +16,12 @@ const GalleryBottom = ({
   isFavourite,
 }) => {
   const mediaItem = photos[currentIndex];
-  const { caption, subcaption } = mediaItem;
+  const { caption, subcaption, fileId } = mediaItem;
+
+  const _onDownload = () => {
+    onForward(fileId);
+  };
+
   return (
     <div className="gallery-bottom__inner">
       <div className="bottom-inner__avatar-container">
@@ -32,7 +37,7 @@ const GalleryBottom = ({
       </div>
       <div className="bottom-inner__buttons-container">
         <div className="bottom-inner__buttons-container-inner">
-          <ButtonDownload onDownload={onDownload} />
+          <ButtonDownload onDownload={_onDownload} />
           <ButtonForward onForward={onForward} />
           {mediaItem.type === "image" && <ButtonRotate onRotate={onRotate} />}
         </div>
