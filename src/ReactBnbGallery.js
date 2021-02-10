@@ -236,7 +236,6 @@ class ReactBnbGallery extends Component {
                         initialIndex={initialIndex}
                         onDownload={onDownload}
                         onForward={onForward}
-                        avatarElement={avatarElement}
                         toFavourites={toFavourites}
                         isFavourite={isFavourite}
                         onShowFullScreen={this.onShowFullScreen}

@@ -517,7 +517,6 @@ class Gallery extends PureComponent {
         <div className="gallery-bottom">
           <GalleryBottom
             photos={photos}
-            avatarElement={avatarElement}
             currentIndex={activePhotoIndex}
             onDownload={onDownload}
             onForward={onForward}

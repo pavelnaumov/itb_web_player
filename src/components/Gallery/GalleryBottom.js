@@ -16,7 +16,7 @@ const GalleryBottom = ({
   isFavourite
 }) => {
   const mediaItem = photos[currentIndex]
-  const { caption, subcaption, fileId } = mediaItem
+  const { caption, subcaption, fileId, avatar } = mediaItem
 
   const _onDownload = () => {
     onDownload(fileId)
@@ -25,7 +25,7 @@ const GalleryBottom = ({
   return (
     <div className='gallery-bottom__inner'>
       <div className='bottom-inner__avatar-container'>
-        <div className='bottom-inner__avatar'>{avatarElement}</div>
+        <div className='bottom-inner__avatar'>{avatar}</div>
         <div className='bottom-inner__name-data'>
           <div className='bottom-inner__name'>
             <>{caption}</>
