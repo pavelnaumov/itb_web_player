@@ -70,6 +70,7 @@ class Gallery extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.activePhotoIndex !== this.state.activePhotoIndex) {
+      this.props.onAssignIndex(this.state.activePhotoIndex);
       this.onResetTransform();
       this.onResetRotation();
     }

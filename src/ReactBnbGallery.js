@@ -165,7 +165,7 @@ class ReactBnbGallery extends Component {
       showThumbnails,
       preloadSize,
       initialIndex,
-      avatarElement,
+      onAssignIndex,
     } = omit(this.props, [
       "onClose",
       "leftKeyPressed",
@@ -241,6 +241,7 @@ class ReactBnbGallery extends Component {
                         onShowFullScreen={this.onShowFullScreen}
                         onHideFullScreen={this.onHideFullScreen}
                         onFullScreen={this.onFullScreen}
+                        onAssignIndex={onAssignIndex}
                       />
                     </div>
                   </div>
