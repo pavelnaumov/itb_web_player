@@ -1,9 +1,9 @@
-import React from "react";
-import ButtonDownload from "./GalleryBottomComponents/ButtonDownload";
-import ButtonForward from "./GalleryBottomComponents/ButtonForward";
-import ButtonRotate from "./GalleryBottomComponents/ButtonRotate";
-import PhotoCounter from "./GalleryBottomComponents/PhotoCounter";
-import ButtonFavourites from "./GalleryBottomComponents/ButtonFavourites";
+import React from 'react'
+import ButtonDownload from './GalleryBottomComponents/ButtonDownload'
+import ButtonForward from './GalleryBottomComponents/ButtonForward'
+import ButtonRotate from './GalleryBottomComponents/ButtonRotate'
+import PhotoCounter from './GalleryBottomComponents/PhotoCounter'
+import ButtonFavourites from './GalleryBottomComponents/ButtonFavourites'
 
 const GalleryBottom = ({
   photos,
@@ -13,37 +13,37 @@ const GalleryBottom = ({
   onForward,
   onRotate,
   toFavourites,
-  isFavourite,
+  isFavourite
 }) => {
-  const mediaItem = photos[currentIndex];
-  const { caption, subcaption, fileId } = mediaItem;
+  const mediaItem = photos[currentIndex]
+  const { caption, subcaption, fileId } = mediaItem
 
   const _onDownload = () => {
-    onForward(fileId);
-  };
+    onDownload(fileId)
+  }
 
   return (
-    <div className="gallery-bottom__inner">
-      <div className="bottom-inner__avatar-container">
-        <div className="bottom-inner__avatar">{avatarElement}</div>
-        <div className="bottom-inner__name-data">
-          <div className="bottom-inner__name">
+    <div className='gallery-bottom__inner'>
+      <div className='bottom-inner__avatar-container'>
+        <div className='bottom-inner__avatar'>{avatarElement}</div>
+        <div className='bottom-inner__name-data'>
+          <div className='bottom-inner__name'>
             <>{caption}</>
           </div>
-          <div className="bottom-inner__date">
+          <div className='bottom-inner__date'>
             <p>{subcaption}</p>
           </div>
         </div>
       </div>
-      <div className="bottom-inner__buttons-container">
-        <div className="bottom-inner__buttons-container-inner">
+      <div className='bottom-inner__buttons-container'>
+        <div className='bottom-inner__buttons-container-inner'>
           <ButtonDownload onDownload={_onDownload} />
           <ButtonForward onForward={onForward} />
-          {mediaItem.type === "image" && <ButtonRotate onRotate={onRotate} />}
+          {mediaItem.type === 'image' && <ButtonRotate onRotate={onRotate} />}
         </div>
       </div>
-      <div className="bottom-inner__right-buttons">
-        <div className="bottom-inner__right-buttons-inner">
+      <div className='bottom-inner__right-buttons'>
+        <div className='bottom-inner__right-buttons-inner'>
           <PhotoCounter
             currentIndex={currentIndex + 1}
             totalCount={photos.length}
@@ -55,7 +55,7 @@ const GalleryBottom = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GalleryBottom;
+export default GalleryBottom
