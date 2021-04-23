@@ -3,7 +3,7 @@
  * Licensed under MIT (https://github.com/peterpalau/react-bnb-gallery/blob/master/LICENSE)
  */
 
- @keyframes GalleryLoadingSpinner {
+@keyframes GalleryLoadingSpinner {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -477,7 +477,7 @@
 
         &::after,
         &::before {
-          content: "";
+          content: '';
           display: table;
         }
 
@@ -653,7 +653,7 @@
 }
 
 .gallery-figcaption .gallery-thumbnails--toggle::after {
-  content: "";
+  content: '';
   display: inline-block;
   vertical-align: middle;
   margin-left: 0.181rem;
@@ -705,7 +705,7 @@
 
 .gallery ul.gallery-images--ul li.gallery-media-photo.loading::before {
   z-index: 999;
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 0;
@@ -867,10 +867,12 @@
   height: 65px;
   position: relative;
   width: 250px;
+  margin-left: 1rem;
 }
 
 .bottom-inner__name,
-.bottom-inner__date {
+.bottom-inner__date,
+.bottom-inner__date-gold {
   margin: 0.15rem;
   > p {
     margin: 0;
@@ -887,7 +889,7 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   color: #ffffff;
@@ -898,10 +900,11 @@
   left: 3px;
 }
 
-.bottom-inner__date {
+.bottom-inner__date,
+.bottom-inner__date-gold {
   p {
     position: relative;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
@@ -910,6 +913,12 @@
     letter-spacing: -0.0434783px;
     color: #999999;
     bottom: 3px;
+  }
+}
+
+.bottom-inner__date-gold {
+  p {
+    color: white;
   }
 }
 
@@ -948,7 +957,7 @@
 }
 
 .counter-current-total {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
@@ -961,7 +970,7 @@
 .counter-slash {
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
@@ -985,7 +994,7 @@
   margin-left: 1rem;
 
   p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 10px;
@@ -1016,7 +1025,7 @@
   margin-left: 1rem;
 
   p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 10px;
@@ -1161,7 +1170,7 @@
 
   p {
     position: relative;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 8px;
@@ -1214,7 +1223,7 @@
   align-content: center;
   border-radius: 12px;
   p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
