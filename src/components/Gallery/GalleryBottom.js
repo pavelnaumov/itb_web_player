@@ -14,11 +14,10 @@ const GalleryBottom = ({
   onRotate,
   toFavourites,
   isFavourite,
-  forwardOverlay,
-  forwardOverlayVisible
+  isGold
 }) => {
   const mediaItem = photos[currentIndex]
-  const { caption, subcaption, fileId, avatar } = mediaItem
+  const { caption, subcaption, fileId } = mediaItem
 
   const _onDownload = () => {
     onDownload(fileId)
@@ -27,7 +26,7 @@ const GalleryBottom = ({
   return (
     <div className='gallery-bottom__inner'>
       <div className='bottom-inner__avatar-container'>
-        <div className='bottom-inner__avatar'>{avatar}</div>
+        <div className='bottom-inner__avatar'>{avatarElement}</div>
         <div className='bottom-inner__name-data'>
           <div className='bottom-inner__name'>
             <>{caption}</>
@@ -39,9 +38,11 @@ const GalleryBottom = ({
       </div>
       <div className='bottom-inner__buttons-container'>
         <div className='bottom-inner__buttons-container-inner'>
-          <ButtonDownload onDownload={_onDownload} />
-          <ButtonForward onForward={onForward} />
-          {mediaItem.type === 'image' && <ButtonRotate onRotate={onRotate} />}
+          <ButtonDownload onDownload={_onDownload} isGold={isGold} />
+          <ButtonForward onForward={onForward} isGold={isGold} />
+          {mediaItem.type === 'image' && (
+            <ButtonRotate onRotate={onRotate} isGold={isGold} />
+          )}
         </div>
       </div>
       <div className='bottom-inner__right-buttons'>
@@ -53,10 +54,10 @@ const GalleryBottom = ({
           <ButtonFavourites
             isFavourite={isFavourite}
             toFavourites={toFavourites}
+            isGold={isGold}
           />
         </div>
       </div>
-      <>{forwardOverlayVisible && forwardOverlay}</>
     </div>
   )
 }

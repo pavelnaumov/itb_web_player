@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import ReactSlider from "react-slider";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react'
+import ReactSlider from 'react-slider'
+import styled from 'styled-components'
 
 const StyledSlider = styled(ReactSlider)`
   width: 100%;
@@ -9,7 +9,7 @@ const StyledSlider = styled(ReactSlider)`
   border-radius: 8px;
   display: flex;
   align-items: center;
-`;
+`
 
 const StyledThumb = styled.div`
   height: 10px;
@@ -24,15 +24,15 @@ const StyledThumb = styled.div`
   :focus {
     outline: none;
   }
-`;
+`
 
 const StyledTrack = styled.div`
   top: 0;
   bottom: 0;
-  background: ${({ index }) =>
-    index === 1 ? "rgba(151, 151, 151, 0.6)" : "#FF4A7D"};
+  background: ${({ index, isGold }) =>
+    index === 1 ? 'rgba(151, 151, 151, 0.6)' : isGold ? '#91586a' : '#FF4A7D'};
   border-radius: 999px;
-`;
+`
 
 const VideoSlider = ({
   value,
@@ -44,6 +44,7 @@ const VideoSlider = ({
   onAfterChange,
   onBeforeChange,
   progress,
+  isGold
 }) => {
   return (
     <>
@@ -57,11 +58,11 @@ const VideoSlider = ({
         value={value}
         onChange={onChange}
         renderTrack={(props, state) => (
-          <StyledTrack {...props} index={state.index} />
+          <StyledTrack {...props} index={state.index} isGold={isGold} />
         )}
         renderThumb={(props) => <StyledThumb {...props} />}
       />
     </>
-  );
-};
-export default VideoSlider;
+  )
+}
+export default VideoSlider
