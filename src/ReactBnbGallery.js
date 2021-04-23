@@ -196,7 +196,6 @@ class ReactBnbGallery extends Component {
             style={modalStyle}
           >
             <div
-              style={galleryModalOverlayStyles}
               className={`gallery-modal--overlay${
                 this.props.isGold ? '-gold' : ''
               }`}
