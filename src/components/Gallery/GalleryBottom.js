@@ -33,7 +33,7 @@ const GalleryBottom = ({
           <div className='bottom-inner__name'>
             <>{caption}</>
           </div>
-          <div className={`bottom-inner__date${isGold ? '-gold' : ''}`}>
+          <div className='bottom-inner__date'>
             <p>{subcaption}</p>
           </div>
         </div>

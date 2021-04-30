@@ -15,12 +15,7 @@ const FullScreenButton = ({ onFullScreen, isGold }) => {
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
-          <circle
-            cx='12'
-            cy='12'
-            r='12'
-            fill='url(#paint0_linearloldsjgklkkd)'
-          />
+          <circle cx='12' cy='12' r='12' fill='url(#paint0_linear)' />
           <path
             fill-rule='evenodd'
             clip-rule='evenodd'
@@ -29,7 +24,7 @@ const FullScreenButton = ({ onFullScreen, isGold }) => {
           />
           <defs>
             <linearGradient
-              id='paint0_linearloldsjgklkkd'
+              id='paint0_linear'
               x1='-3.80945'
               y1='-6.31797'
               x2='-3.55151'
