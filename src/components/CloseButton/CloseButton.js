@@ -45,7 +45,7 @@ const CloseButton = ({ onPress, light, isGold }) => (
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <circle cx='12' cy='12' r='12' fill='url(#paint0_linear)' />
+        <circle cx='12' cy='12' r='12' fill='url(#paint0_linearggg123gs)' />
         <path
           fill-rule='evenodd'
           clip-rule='evenodd'
@@ -54,7 +54,7 @@ const CloseButton = ({ onPress, light, isGold }) => (
         />
         <defs>
           <linearGradient
-            id='paint0_linear'
+            id='paint0_linearggg123gs'
             x1='-3.80945'
             y1='-6.31797'
             x2='-3.55151'
