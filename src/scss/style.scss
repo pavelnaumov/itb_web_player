@@ -1232,3 +1232,13 @@
     color: #999999;
   }
 }
+
+
+.bottom__button-download,
+.bottom__button-forward,
+.bottom__button-rotate {
+  .Tooltip-Tip {
+    top: 1rem;
+    margin-top: -0.5rem;
+  }
+}
